@@ -1,94 +1,109 @@
-// AiOS bootstrapper
+// Nullcat chan! bootstrapper
 
-import 'module-alias/register';
+import * as chalk from "chalk"
+import "module-alias/register"
+import * as request from "request-promise-native"
+import config from "./config"
+import BirthdayModule from "../../NullcatChan-old/src/modules/birthday"
+import CoreModule from "../../NullcatChan-old/src/modules/core"
+import EmojiReactModule from "../../NullcatChan-old/src/modules/emoji-react"
+import FeelingModule from "../../NullcatChan-old/src/modules/feeling"
+import FollowModule from "../../NullcatChan-old/src/modules/follow"
+import FortuneModule from "../../NullcatChan-old/src/modules/fortune"
+import GitHubStatusModule from "../../NullcatChan-old/src/modules/github-status"
+import CloudflareStatus from "../../NullcatChan-old/src/modules/cloudflare-status";
+import GomamayoModule from "../../NullcatChan-old/src/modules/gomamayo"
+import JihouModule from "../../NullcatChan-old/src/modules/jihou"
+import KeywordModule from "../../NullcatChan-old/src/modules/keyword"
+import KiatsuModule from "../../NullcatChan-old/src/modules/kiatsu"
+import NotingModule from "../../NullcatChan-old/src/modules/noting"
+import PingModule from "../../NullcatChan-old/src/modules/ping"
+import ReminderModule from "../../NullcatChan-old/src/modules/reminder"
+import RoguboModule from "../../NullcatChan-old/src/modules/rogubo"
+import ServerModule from "../../NullcatChan-old/src/modules/server"
+import SleepReportModule from "../../NullcatChan-old/src/modules/sleep-report"
+import TalkModule from "../../NullcatChan-old/src/modules/talk"
+import TimerModule from "../../NullcatChan-old/src/modules/timer"
+import TraceMoeModule from "../../NullcatChan-old/src/modules/trace-moe"
+import ValentineModule from "../../NullcatChan-old/src/modules/valentine"
+import WhatModule from "../../NullcatChan-old/src/modules/what"
+import YarukotoModule from "../../NullcatChan-old/src/modules/yarukoto"
+import NullcatChan from "../../NullcatChan-old/src/nullcat-chan"
+import _log from "../../NullcatChan-old/src/utils/log"
+import ShellGeiModule from "../../NullcatChan-old/src/modules/shellgei"
+import SversionModule from "../../NullcatChan-old/src/modules/Sversion"
+import AyashiiModule from "../../NullcatChan-old/src/modules/ayashii"
 
-import * as chalk from 'chalk';
-import * as request from 'request-promise-native';
-const promiseRetry = require('promise-retry');
+const promiseRetry = require("promise-retry")
 
-import 藍 from './ai';
-import config from './config';
-import _log from './utils/log';
-const pkg = require('../package.json');
+const pkg = require("../../NullcatChan-old/package.json")
 
-import CoreModule from './modules/core';
-import TalkModule from './modules/talk';
-import BirthdayModule from './modules/birthday';
-import ReversiModule from './modules/reversi';
-import PingModule from './modules/ping';
-import EmojiModule from './modules/emoji';
-import EmojiReactModule from './modules/emoji-react';
-import FortuneModule from './modules/fortune';
-import GuessingGameModule from './modules/guessing-game';
-import KazutoriModule from './modules/kazutori';
-import KeywordModule from './modules/keyword';
-import WelcomeModule from './modules/welcome';
-import TimerModule from './modules/timer';
-import DiceModule from './modules/dice';
-import ServerModule from './modules/server';
-import FollowModule from './modules/follow';
-import ValentineModule from './modules/valentine';
-import MazeModule from './modules/maze';
-import ChartModule from './modules/chart';
-import SleepReportModule from './modules/sleep-report';
-import NotingModule from './modules/noting';
-import PollModule from './modules/poll';
-import ReminderModule from './modules/reminder';
-
-console.log('   __    ____  _____  ___ ');
-console.log('  /__\\  (_  _)(  _  )/ __)');
-console.log(' /(__)\\  _)(_  )(_)( \\__ \\');
-console.log('(__)(__)(____)(_____)(___/\n');
+console.log("    _   __      ____           __  ________                __     ")
+console.log("   / | / /_  __/ / /________ _/ /_/ ____/ /_  ____ _____  / /     ")
+console.log("  /  |/ / / / / / / ___/ __ `/ __/ /   / __ \\/ __ `/ __ \\/ /    ")
+console.log(" / /|  / /_/ / / / /__/ /_/ / /_/ /___/ / / / /_/ / / / /_/       ")
+console.log("/_/ |_/\\__,_/_/_/\\___/\\__,_/\\__/\\____/_/ /_/\\__,_/_/ /_(_)\n")
 
 function log(msg: string): void {
-	_log(`[Boot]: ${msg}`);
+	_log(`[Boot]: ${msg}`)
 }
 
-log(chalk.bold(`Ai v${pkg._v}`));
+log(chalk.bold(`Nullcat chan! v${pkg._v}`))
 
-promiseRetry(retry => {
-	log(`Account fetching... ${chalk.gray(config.host)}`);
+promiseRetry(
+	(retry) => {
+		log(`Account fetching... ${chalk.gray(config.host)}`)
 
-	// アカウントをフェッチ
-	return request.post(`${config.apiUrl}/i`, {
-		json: {
-			i: config.i
-		}
-	}).catch(retry);
-}, {
-	retries: 3
-}).then(account => {
-	const acct = `@${account.username}`;
-	log(chalk.green(`Account fetched successfully: ${chalk.underline(acct)}`));
+		// アカウントをフェッチ
+		return request
+			.post(`${config.apiUrl}/i`, {
+				json: {
+					i: config.i,
+				},
+			})
+			.catch(retry)
+	},
+	{
+		retries: 3,
+	}
+)
+	.then((account) => {
+		const acct = `@${account.username}`
+		log(chalk.green(`Account fetched successfully: ${chalk.underline(acct)}`))
 
-	log('Starting AiOS...');
+		log("Starting Nullcat chan...")
 
-	// 藍起動
-	new 藍(account, [
-		new CoreModule(),
-		new EmojiModule(),
-		new EmojiReactModule(),
-		new FortuneModule(),
-		new GuessingGameModule(),
-		new KazutoriModule(),
-		new ReversiModule(),
-		new TimerModule(),
-		new DiceModule(),
-		new TalkModule(),
-		new PingModule(),
-		new WelcomeModule(),
-		new ServerModule(),
-		new FollowModule(),
-		new BirthdayModule(),
-		new ValentineModule(),
-		new KeywordModule(),
-		new MazeModule(),
-		new ChartModule(),
-		new SleepReportModule(),
-		new NotingModule(),
-		new PollModule(),
-		new ReminderModule(),
-	]);
-}).catch(e => {
-	log(chalk.red('Failed to fetch the account'));
-});
+		// ぬるきゃっとちゃん起動
+		new NullcatChan(account, [
+			new CoreModule(),
+			new EmojiReactModule(),
+			new FortuneModule(),
+			new TimerModule(),
+			new TalkModule(),
+			new FollowModule(),
+			new BirthdayModule(),
+			new ValentineModule(),
+			new KeywordModule(),
+			new SleepReportModule(),
+			new NotingModule(),
+			new ReminderModule(),
+			new GomamayoModule(),
+			new GitHubStatusModule(),
+			new CloudflareStatus(),
+			new YarukotoModule(),
+			new RoguboModule(),
+			new KiatsuModule(),
+			new JihouModule(),
+			new WhatModule(),
+			new FeelingModule(),
+			new TraceMoeModule(),
+			new ServerModule(),
+			new ShellGeiModule(),
+			new SversionModule(),
+			new AyashiiModule(),
+			new PingModule(),
+		])
+	})
+	.catch((e) => {
+		log(chalk.red("Failed to fetch the account"))
+	})

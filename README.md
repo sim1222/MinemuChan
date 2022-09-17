@@ -1,61 +1,67 @@
-<h1><p align="center"><img src="./ai.svg" alt="藍" height="200"></p></h1>
-<p align="center">An Ai for Misskey. <a href="./torisetu.md">About Ai</a></p>
+<p align="center">
+	<img src="./nullcatchan.png" alt="nullcatchan!" height="200">
+</p>
 
-## これなに
-Misskey用の日本語Botです。
 
-## インストール
-> Node.js と npm と MeCab (オプション) がインストールされている必要があります。
+# これってなに？
+
+Misskey用の[Aiベース](https://github.com/syuilo/ai)の日本語Botです。
+
+## 変更点
+
+- 自動投稿や自動返信、pingに対する返答の内容
+- ゴママヨに反応([ここ](https://github.com/ThinaticSystem/gomamayo.js)から持ってきた)
+- ゲーム機能と絵文字を自動生成するやつの削除
+- GitHubのStatusを教えてくれる機能
+- CloudflareのStatusを教えてくれる機能
+- やることを決めてくれる
+- 気圧の状況を教えてくれる
+- 時報機能
+- シェル芸機能([ここ](https://github.com/sim1222/shellgei-misskey)から持ってきた)
+- 怪レい曰本语に変換してくれる機能
+
+## 導入方法
+
+> Node.js と npm と MeCab がインストールされている必要があります。
 
 まず適当なディレクトリに `git clone` します。
 次にそのディレクトリに `config.json` を作成します。中身は次のようにします:
 ``` json
 {
 	"host": "https:// + あなたのインスタンスのURL (末尾の / は除く)",
-	"i": "藍として動かしたいアカウントのアクセストークン",
+	"i": "ぬるきゃっとちゃん！として動かしたいアカウントのアクセストークン",
 	"master": "管理者のユーザー名(オプション)",
-	"notingEnabled": "ランダムにノートを投稿する機能を無効にする場合は false を入れる",
-	"keywordEnabled": "キーワードを覚える機能 (MeCab が必要) を有効にする場合は true を入れる (無効にする場合は false)",
-	"chartEnabled": "チャート機能を無効化する場合は false を入れてください",
-	"reversiEnabled": "藍とリバーシで対局できる機能を有効にする場合は true を入れる (無効にする場合は false)",
-	"serverMonitoring": "サーバー監視の機能を有効にする場合は true を入れる (無効にする場合は false)",
-	"mecab": "MeCab のインストールパス (ソースからインストールした場合、大体は /usr/local/bin/mecab)",
-	"mecabDic": "MeCab の辞書ファイルパス (オプション)",
-	"memoryDir": "memory.jsonの保存先（オプション、デフォルトは'.'（レポジトリのルートです））"
+	"notingEnabled": "ランダムにノートを投稿する機能。true(on) or false(off)",
+	"keywordEnabled": "キーワードを覚える機能 (MeCab が必要) true or false",
+	"serverMonitoring": "サーバー監視の機能（重かったりすると教えてくれるよ。）true or false",
+	"mecab": "MeCab のインストールパス (ソースからインストールした場合、大体は /usr/local/bin/mecab) true or false",
+	"mecabDic": "MeCab の辞書ファイルパス",
+	"memoryDir": "memory.jsonの保存先（オプション、デフォルトは'.'（レポジトリのルートです））",
+	"shellgeiUrl": "シェル芸BotのAPIのURLです（デフォルトではhttps://websh.jiro4989.com/api/shellgei）"
 }
 ```
-`npm install` して `npm run build` して `npm start` すれば起動できます
+`npm install` して `npm run build` して `npm start` すれば起動できます。
 
-## Dockerで動かす
-まず適当なディレクトリに `git clone` します。
+### Dockerで動かす
+
+まず適当なディレクトリに `git clone` します。<br>
 次にそのディレクトリに `config.json` を作成します。中身は次のようにします:
 （MeCabの設定、memoryDirについては触らないでください）
 ``` json
 {
 	"host": "https:// + あなたのインスタンスのURL (末尾の / は除く)",
-	"i": "藍として動かしたいアカウントのアクセストークン",
+	"i": "ぬるきゃっとちゃん！として動かしたいアカウントのアクセストークン",
 	"master": "管理者のユーザー名(オプション)",
-	"notingEnabled": "ランダムにノートを投稿する機能を無効にする場合は false を入れる",
-	"keywordEnabled": "キーワードを覚える機能 (MeCab が必要) を有効にする場合は true を入れる (無効にする場合は false)",
-	"chartEnabled": "チャート機能を無効化する場合は false を入れてください",
-	"reversiEnabled": "藍とリバーシで対局できる機能を有効にする場合は true を入れる (無効にする場合は false)",
-	"serverMonitoring": "サーバー監視の機能を有効にする場合は true を入れる (無効にする場合は false)",
+	"notingEnabled": "ランダムにノートを投稿する機能。true(on) or false(off)",
+	"keywordEnabled": "キーワードを覚える機能 (MeCab が必要) true or false",
 	"mecab": "/usr/bin/mecab",
 	"mecabDic": "/usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd/",
-	"memoryDir": "data"
+	"memoryDir": "data",
+	"shellgeiUrl": "シェル芸BotのAPIのURLです（デフォルトではhttps://websh.jiro4989.com/api/shellgei）"
 }
 ```
-`docker-compose build` して `docker-compose up` すれば起動できます。
+`npm install` して `npm run docker` すれば起動できます。<br>
 `docker-compose.yml` の `enable_mecab` を `0` にすると、MeCabをインストールしないようにもできます。（メモリが少ない環境など）
 
-## フォント
-一部の機能にはフォントが必要です。藍にはフォントは同梱されていないので、ご自身でフォントをインストールディレクトリに`font.ttf`という名前で設置してください。
-
-## 記憶
-藍は記憶の保持にインメモリデータベースを使用しており、藍のインストールディレクトリに `memory.json` という名前で永続化されます。
-
-## ライセンス
-MIT
-
-## Awards
-<img src="./WorksOnMyMachine.png" alt="Works on my machine" height="120">
+#### 一部の機能にはフォントが必要です。NullcatChan!にはフォントは同梱されていないので、ご自身でフォントをインストールしてそのフォントを`font.ttf`という名前でインストールディレクトリに設置してください。
+#### NullcatChan!は記憶の保持にインメモリデータベースを使用しており、僕のインストールディレクトリに `memory.json` という名前で永続化されます。

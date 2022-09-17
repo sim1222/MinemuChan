@@ -1,32 +1,32 @@
-import autobind from 'autobind-decorator';
-import 藍, { InstallerResult } from '@/ai';
+import NullcatChan, { InstallerResult } from "./nullcat-chan"
+import autobind from "autobind-decorator"
 
 export default abstract class Module {
-	public abstract readonly name: string;
+	public abstract readonly name: string
 
-	protected ai: 藍;
-	private doc: any;
+	protected nullcatChan: NullcatChan
+	private doc: any
 
-	public init(ai: 藍) {
-		this.ai = ai;
+	public init(nullcatChan: NullcatChan) {
+		this.nullcatChan = nullcatChan
 
-		this.doc = this.ai.moduleData.findOne({
-			module: this.name
-		});
+		this.doc = this.nullcatChan.moduleData.findOne({
+			module: this.name,
+		})
 
 		if (this.doc == null) {
-			this.doc = this.ai.moduleData.insertOne({
+			this.doc = this.nullcatChan.moduleData.insertOne({
 				module: this.name,
-				data: {}
-			});
+				data: {},
+			})
 		}
 	}
 
-	public abstract install(): InstallerResult;
+	public abstract install(): InstallerResult
 
 	@autobind
 	protected log(msg: string) {
-		this.ai.log(`[${this.name}]: ${msg}`);
+		this.nullcatChan.log(`[${this.name}]: ${msg}`)
 	}
 
 	/**
@@ -38,7 +38,7 @@ export default abstract class Module {
 	 */
 	@autobind
 	protected subscribeReply(key: string | null, isDm: boolean, id: string, data?: any) {
-		this.ai.subscribeReply(this, key, isDm, id, data);
+		this.nullcatChan.subscribeReply(this, key, isDm, id, data)
 	}
 
 	/**
@@ -47,7 +47,7 @@ export default abstract class Module {
 	 */
 	@autobind
 	protected unsubscribeReply(key: string | null) {
-		this.ai.unsubscribeReply(this, key);
+		this.nullcatChan.unsubscribeReply(this, key)
 	}
 
 	/**
@@ -58,17 +58,17 @@ export default abstract class Module {
 	 */
 	@autobind
 	public setTimeoutWithPersistence(delay: number, data?: any) {
-		this.ai.setTimeoutWithPersistence(this, delay, data);
+		this.nullcatChan.setTimeoutWithPersistence(this, delay, data)
 	}
 
 	@autobind
 	protected getData() {
-		return this.doc.data;
+		return this.doc.data
 	}
 
 	@autobind
 	protected setData(data: any) {
-		this.doc.data = data;
-		this.ai.moduleData.update(this.doc);
+		this.doc.data = data
+		this.nullcatChan.moduleData.update(this.doc)
 	}
 }

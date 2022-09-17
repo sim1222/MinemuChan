@@ -14,10 +14,10 @@
 		"noLib": false,
 		"outDir": "built",
 		"rootDir": "src",
-		"baseUrl": ".",
+		"baseUrl": "../NullcatChan-old",
 		"paths": {
 			"@/*": ["src/*"]
-		},
+		}
 	},
 	"compileOnSave": false,
 	"include": [
