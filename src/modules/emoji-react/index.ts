@@ -1,7 +1,7 @@
 import { Note } from "../../misskey/note"
 import Module from "@/module"
 import Stream from "@/stream"
-import includes from "../../../../NullcatChan-old/src/utils/includes"
+import includes from "../../../../NullcatChan/src/utils/includes"
 import autobind from "autobind-decorator"
 const delay = require("timeout-as-promise")
 

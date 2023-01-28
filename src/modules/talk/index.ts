@@ -1,8 +1,8 @@
 import Message from "@/message"
 import Module from "@/module"
-import { HandlerResult } from "../../nullcat-chan"
+import { HandlerResult } from "@/nullcat-chan"
 import serifs, { getSerif } from "@/serifs"
-import getDate from "../../../../NullcatChan-old/src/utils/get-date"
+import getDate from "../../../../NullcatChan/src/utils/get-date"
 import autobind from "autobind-decorator"
 
 export default class extends Module {

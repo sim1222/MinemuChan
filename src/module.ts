@@ -1,4 +1,4 @@
-import NullcatChan, { InstallerResult } from "./nullcat-chan"
+import NullcatChan, { InstallerResult } from "@/nullcat-chan"
 import autobind from "autobind-decorator"
 
 export default abstract class Module {

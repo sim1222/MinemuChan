@@ -1,7 +1,7 @@
 import Message from "@/message"
 import Module from "@/module"
 import serifs from "@/serifs"
-import { safeForInterpolate } from "../../../../NullcatChan-old/src/utils/safe-for-interpolate"
+import { safeForInterpolate } from "../../../../NullcatChan/src/utils/safe-for-interpolate"
 import autobind from "autobind-decorator"
 
 const titles = ["さん", "くん", "君", "ちゃん", "様", "先生"]

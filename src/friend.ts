@@ -1,8 +1,8 @@
 import { User } from "./misskey/user"
-import IModule from "../../NullcatChan-old/src/module"
-import NullcatChan from "../../NullcatChan-old/src/nullcat-chan"
-import getDate from "../../NullcatChan-old/src/utils/get-date"
-import { genItem } from "../../NullcatChan-old/src/vocabulary"
+import IModule from "../../NullcatChan/src/module"
+import NullcatChan from "../../NullcatChan/src/nullcat-chan"
+import getDate from "../../NullcatChan/src/utils/get-date"
+import { genItem } from "../../NullcatChan/src/vocabulary"
 import autobind from "autobind-decorator"
 
 export type FriendDoc = {
