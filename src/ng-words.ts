@@ -1,4 +1,4 @@
-import toHiragana from '../../NullcatChan-old/src/utils/to-hiragana';
+import toHiragana from '../../NullcatChan/src/utils/to-hiragana';
 
 const fs = require('fs');
 const readline = require('readline');

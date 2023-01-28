@@ -3,7 +3,7 @@ services:
   app:
     build:
       dockerfile: Dockerfile_production
-      context: ../NullcatChan-old
+      context: ../NullcatChan
       args:
         - enable_mecab=1
     volumes:

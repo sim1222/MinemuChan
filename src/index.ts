@@ -4,39 +4,38 @@ import * as chalk from "chalk"
 import "module-alias/register"
 import * as request from "request-promise-native"
 import config from "./config"
-import BirthdayModule from "../../NullcatChan-old/src/modules/birthday"
-import CoreModule from "../../NullcatChan-old/src/modules/core"
-import EmojiReactModule from "../../NullcatChan-old/src/modules/emoji-react"
-import FeelingModule from "../../NullcatChan-old/src/modules/feeling"
-import FollowModule from "../../NullcatChan-old/src/modules/follow"
-import FortuneModule from "../../NullcatChan-old/src/modules/fortune"
-import GitHubStatusModule from "../../NullcatChan-old/src/modules/github-status"
-import CloudflareStatus from "../../NullcatChan-old/src/modules/cloudflare-status";
-import GomamayoModule from "../../NullcatChan-old/src/modules/gomamayo"
-import JihouModule from "../../NullcatChan-old/src/modules/jihou"
-import KeywordModule from "../../NullcatChan-old/src/modules/keyword"
-import KiatsuModule from "../../NullcatChan-old/src/modules/kiatsu"
-import NotingModule from "../../NullcatChan-old/src/modules/noting"
-import PingModule from "../../NullcatChan-old/src/modules/ping"
-import ReminderModule from "../../NullcatChan-old/src/modules/reminder"
-import RoguboModule from "../../NullcatChan-old/src/modules/rogubo"
-import ServerModule from "../../NullcatChan-old/src/modules/server"
-import SleepReportModule from "../../NullcatChan-old/src/modules/sleep-report"
-import TalkModule from "../../NullcatChan-old/src/modules/talk"
-import TimerModule from "../../NullcatChan-old/src/modules/timer"
-import TraceMoeModule from "../../NullcatChan-old/src/modules/trace-moe"
-import ValentineModule from "../../NullcatChan-old/src/modules/valentine"
-import WhatModule from "../../NullcatChan-old/src/modules/what"
-import YarukotoModule from "../../NullcatChan-old/src/modules/yarukoto"
-import NullcatChan from "../../NullcatChan-old/src/nullcat-chan"
-import _log from "../../NullcatChan-old/src/utils/log"
-import ShellGeiModule from "../../NullcatChan-old/src/modules/shellgei"
-import SversionModule from "../../NullcatChan-old/src/modules/Sversion"
-import AyashiiModule from "../../NullcatChan-old/src/modules/ayashii"
+import BirthdayModule from "../../NullcatChan/src/modules/birthday"
+import CoreModule from "../../NullcatChan/src/modules/core"
+import EmojiReactModule from "../../NullcatChan/src/modules/emoji-react"
+import FeelingModule from "../../NullcatChan/src/modules/feeling"
+import FollowModule from "../../NullcatChan/src/modules/follow"
+import FortuneModule from "../../NullcatChan/src/modules/fortune"
+import GitHubStatusModule from "../../NullcatChan/src/modules/github-status"
+import CloudflareStatus from "../../NullcatChan/src/modules/cloudflare-status";
+import GomamayoModule from "../../NullcatChan/src/modules/gomamayo"
+import JihouModule from "../../NullcatChan/src/modules/jihou"
+import KeywordModule from "../../NullcatChan/src/modules/keyword"
+import KiatsuModule from "../../NullcatChan/src/modules/kiatsu"
+import NotingModule from "../../NullcatChan/src/modules/noting"
+import PingModule from "../../NullcatChan/src/modules/ping"
+import ReminderModule from "../../NullcatChan/src/modules/reminder"
+import ServerModule from "../../NullcatChan/src/modules/server"
+import SleepReportModule from "../../NullcatChan/src/modules/sleep-report"
+import TalkModule from "../../NullcatChan/src/modules/talk"
+import TimerModule from "../../NullcatChan/src/modules/timer"
+import TraceMoeModule from "../../NullcatChan/src/modules/trace-moe"
+import ValentineModule from "../../NullcatChan/src/modules/valentine"
+import WhatModule from "../../NullcatChan/src/modules/what"
+import YarukotoModule from "../../NullcatChan/src/modules/yarukoto"
+import NullcatChan from "../../NullcatChan/src/nullcat-chan"
+import _log from "../../NullcatChan/src/utils/log"
+import ShellGeiModule from "../../NullcatChan/src/modules/shellgei"
+import SversionModule from "../../NullcatChan/src/modules/version"
+import AyashiiModule from "../../NullcatChan/src/modules/ayashii"
 
 const promiseRetry = require("promise-retry")
 
-const pkg = require("../../NullcatChan-old/package.json")
+const pkg = require("../../NullcatChan/package.json")
 
 console.log("    _   __      ____           __  ________                __     ")
 console.log("   / | / /_  __/ / /________ _/ /_/ ____/ /_  ____ _____  / /     ")
@@ -91,7 +90,6 @@ promiseRetry(
 			new GitHubStatusModule(),
 			new CloudflareStatus(),
 			new YarukotoModule(),
-			new RoguboModule(),
 			new KiatsuModule(),
 			new JihouModule(),
 			new WhatModule(),

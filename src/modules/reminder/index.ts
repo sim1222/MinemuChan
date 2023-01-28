@@ -2,7 +2,7 @@ import config from "@/config"
 import Message from "@/message"
 import Module from "@/module"
 import serifs, { getSerif } from "@/serifs"
-import { acct } from "../../../../NullcatChan-old/src/utils/acct"
+import { acct } from "../../../../NullcatChan/src/utils/acct"
 import autobind from "autobind-decorator"
 import * as loki from "lokijs"
 

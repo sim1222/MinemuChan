@@ -14,7 +14,7 @@
 		"noLib": false,
 		"outDir": "built",
 		"rootDir": "src",
-		"baseUrl": "../NullcatChan-old",
+		"baseUrl": "../NullcatChan",
 		"paths": {
 			"@/*": ["src/*"]
 		}

@@ -4,9 +4,9 @@ import config from "./config"
 import Friend, { FriendDoc } from "./friend"
 import Message from "./message"
 import { User } from "./misskey/user"
-import Module from "../../NullcatChan-old/src/module"
+import Module from "../../NullcatChan/src/module"
 import Stream from "./stream"
-import log from "../../NullcatChan-old/src/utils/log"
+import log from "../../NullcatChan/src/utils/log"
 import autobind from "autobind-decorator"
 import * as chalk from "chalk"
 import * as fs from "fs"
@@ -15,7 +15,7 @@ import * as request from "request-promise-native"
 import { v4 as uuid } from "uuid"
 const delay = require("timeout-as-promise")
 
-const pkg = require("../../NullcatChan-old/package.json")
+const pkg = require("../../NullcatChan/package.json")
 
 type MentionHook = (msg: Message) => Promise<boolean | HandlerResult>
 type ContextHook = (key: any, msg: Message, data?: any) => Promise<void | boolean | HandlerResult>

@@ -1,9 +1,9 @@
 import config from "@/config"
 import Friend from "@/friend"
 import { User } from "./misskey/user"
-import NullcatChan from "../../NullcatChan-old/src/nullcat-chan"
-import includes from "../../NullcatChan-old/src/utils/includes"
-import or from "../../NullcatChan-old/src/utils/or"
+import NullcatChan from "../../NullcatChan/src/nullcat-chan"
+import includes from "../../NullcatChan/src/utils/includes"
+import or from "../../NullcatChan/src/utils/or"
 import autobind from "autobind-decorator"
 import * as chalk from "chalk"
 const delay = require("timeout-as-promise")
