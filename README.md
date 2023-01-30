@@ -34,11 +34,11 @@ Misskey用の[Aiベース](https://github.com/syuilo/ai)のBotです。
 	"master": "管理者のユーザー名(オプション)",
 	"notingEnabled": "ランダムにノートを投稿する機能。true(on) or false(off)",
 	"keywordEnabled": "キーワードを覚える機能 (MeCab が必要) true or false",
-	"serverMonitoring": "サーバー監視の機能（重かったりすると教えてくれるよ。）true or false",
+	"serverMonitoring": "サーバー監視の機能(重かったりすると教えてくれるよ。)true or false",
 	"mecab": "MeCab のインストールパス (ソースからインストールした場合、大体は /usr/local/bin/mecab) ",
-	"mecabDic": "MeCab の辞書ファイルパス",
-	"memoryDir": "memory.jsonの保存先（オプション、デフォルトは'.'（レポジトリのルートです））",
-	"shellgeiUrl": "シェル芸BotのAPIのURLです（デフォルトではhttps://websh.jiro4989.com/api/shellgei）"
+	"mecabDic": "MeCab の辞書ファイルパス(オプション)",
+	"memoryDir": "memory.jsonの保存先(オプション、デフォルトは'.'(レポジトリのルートです))",
+	"shellgeiUrl": "シェル芸BotのAPIのURLです(オプション、デフォルトはhttps://websh.jiro4989.com/api/shellgei)"
 }
 ```
 `npm install` して `npm run build` して `npm start` すれば起動できます。
@@ -57,7 +57,7 @@ Misskey用の[Aiベース](https://github.com/syuilo/ai)のBotです。
 	"mecab": "/usr/bin/mecab",
 	"mecabDic": "/usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd/",
 	"memoryDir": "data",
-	"shellgeiUrl": "シェル芸BotのAPIのURLです（デフォルトではhttps://websh.jiro4989.com/api/shellgei）"
+	"shellgeiUrl": "シェル芸BotのAPIのURLです(オプション、デフォルトではhttps://websh.jiro4989.com/api/shellgei)"
 }
 ```
 `npm install` して `npm run docker` すれば起動できます。<br>
