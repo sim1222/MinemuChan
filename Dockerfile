@@ -1,25 +1,55 @@
-FROM node:lts-bullseye
+FROM node:16 AS module
 
-RUN apt-get update && apt-get install -y tini
+WORKDIR /app
 
-ARG enable_mecab=1
+RUN apt-get update
+RUN apt-get install -y build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
 
-RUN if [ $enable_mecab -ne 0 ]; then apt-get update \
-  && apt-get install mecab libmecab-dev mecab-ipadic-utf8 make curl xz-utils file sudo --no-install-recommends -y \
-  && apt-get clean \
-  && rm -rf /var/lib/apt-get/lists/* \
-  && cd /opt \
-  && git clone --depth 1 https://github.com/neologd/mecab-ipadic-neologd.git \
-  && cd /opt/mecab-ipadic-neologd \
-  && ./bin/install-mecab-ipadic-neologd -n -y \
-  && rm -rf /opt/mecab-ipadic-neologd \
-  && echo "dicdir = /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd/" > /etc/mecabrc \
-  && apt-get purge git make curl xz-utils file -y; fi
+COPY package.json .
 
-COPY . /nullcatchan
+RUN corepack enable
+RUN pnpm install --prod
+
+
+FROM module AS build
+
+RUN pnpm install
+
+COPY . .
+
+RUN pnpm build
+
+
+FROM debian:bullseye AS mecab
+
+RUN apt-get update
+RUN apt-get install -y sudo mecab libmecab-dev mecab-ipadic-utf8 git make curl xz-utils file build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+RUN git clone --depth 1 https://github.com/neologd/mecab-ipadic-neologd.git
+RUN cd mecab-ipadic-neologd
+RUN ./mecab-ipadic-neologd/bin/install-mecab-ipadic-neologd -n -y -p /min
+RUN echo "dicdir = /min" > /etc/mecabrc
+
+
+FROM alpine:3 AS lib
+
+RUN apk update
+RUN apk add tini-static
+RUN mv /sbin/tini-static /tini
+
+
+FROM node:16-slim
+
+RUN apt-get update && \
+	apt-get install -y mecab
 
 WORKDIR /nullcatchan
-RUN npm install && npm run build
 
-ENTRYPOINT ["/usr/bin/tini", "--"]
-CMD npm start
+COPY package.json .
+COPY --from=module /app/node_modules node_modules
+COPY --from=build /app/built built
+COPY --from=mecab /min /min
+COPY --from=mecab /etc/mecabrc /etc/mecabrc
+COPY --from=lib /tini /tini
+
+ENTRYPOINT ["/tini", "--"]
+CMD ["node", "./built"]
