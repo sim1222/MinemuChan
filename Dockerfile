@@ -39,8 +39,12 @@ RUN mv /sbin/tini-static /tini
 
 FROM node:16-slim
 
+ENV NODE_ENV="production"
+
 RUN apt-get update && \
-	apt-get install -y mecab
+	apt-get install -y mecab && \
+	apt-get clean && \
+	rm -rf /var/lib/apt/lists/*
 
 WORKDIR /nullcatchan
 
