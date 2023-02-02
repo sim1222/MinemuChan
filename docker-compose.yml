@@ -1,15 +1,12 @@
 version: '3'
 services:
   app:
-    build:
-      dockerfile: Dockerfile_production
-      context: .
-      args:
-        - enable_mecab=1
+    build: .
     volumes:
       - './config.json:/nullcatchan/config.json:ro'
       - './font.ttf:/nullcatchan/font.ttf:ro'
       - './data:/nullcatchan/data'
+      - './ngwords.txt:/nullcatchan/ngwords.txt'
     restart: always
     environment:
       TZ: Asia/Tokyo
