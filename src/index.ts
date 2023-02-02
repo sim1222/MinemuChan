@@ -51,7 +51,7 @@ function log(msg: string): void {
 	_log(`[Boot]: ${msg}`);
 }
 
-log(chalk.bold(`Nullcat chan! v${pkg._v}`));
+log(chalk.bold(`Nullcat chan! v${pkg.version}`));
 
 promiseRetry(
 	retry => {
