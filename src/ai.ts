@@ -427,7 +427,14 @@ export default class 藍 {
 			body: JSON.stringify({
 				...{ i: config.i }, ...param
 			}),
-		}).then(res => res.json());
+		}).then(res => {
+			if(res.status != 204)
+				return res.json();
+
+			return new Promise((resolve, reject) => {
+				resolve(JSON.parse("{}"));
+			})
+		});
 	}
 
 	/**
