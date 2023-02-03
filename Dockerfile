@@ -1,4 +1,4 @@
-FROM node:16 AS module
+FROM node:18 AS module
 
 WORKDIR /app
 
@@ -37,7 +37,7 @@ RUN apk add tini-static
 RUN mv /sbin/tini-static /tini
 
 
-FROM node:16-slim
+FROM node:18-slim
 
 ENV NODE_ENV="production"
 
