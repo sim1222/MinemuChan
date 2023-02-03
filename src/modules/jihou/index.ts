@@ -1,7 +1,7 @@
 import Module from '@/module';
 import autobind from 'autobind-decorator';
 
-const accurateInterval = require('accurate-interval');
+import accurateInterval from 'accurate-interval';
 
 export default class extends Module {
 	public readonly name = 'jihou';

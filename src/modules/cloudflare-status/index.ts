@@ -2,7 +2,6 @@ import config from '@/config';
 import Message from '@/message';
 import Module from '@/module';
 import autobind from 'autobind-decorator';
-import fetch from 'node-fetch';
 import { z } from 'zod';
 
 export default class extends Module {

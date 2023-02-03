@@ -1,7 +1,7 @@
 import Message from '@/message';
 import Module from '@/module';
 import autobind from 'autobind-decorator';
-import * as seedrandom from 'seedrandom';
+import seedrandom from 'seedrandom';
 
 export const feelings = ['つらい', 'ねむい', 'るんるん', '虚無'];
 

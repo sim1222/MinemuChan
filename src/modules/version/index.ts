@@ -48,8 +48,6 @@ export default class extends Module {
 						this.log(`Version changed: ${v}`);
 
 						this.ai.post({ text: `ぼくのおうちが${v}にリフォームされたよ！！` });
-					} else {
-						// 変更なし
 					}
 				}
 

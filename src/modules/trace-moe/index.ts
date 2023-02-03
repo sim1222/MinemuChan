@@ -1,9 +1,8 @@
 import Message from '@/message';
 import Module from '@/module';
 import autobind from 'autobind-decorator';
-import fetch from 'node-fetch';
 import { z } from 'zod';
-import humanizeDuration = require('humanize-duration');
+import humanizeDuration from 'humanize-duration';
 
 export default class extends Module {
 	public readonly name = 'trace-moe';

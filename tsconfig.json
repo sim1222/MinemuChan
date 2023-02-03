@@ -8,6 +8,7 @@
 		"noFallthroughCasesInSwitch": true,
 		"strictNullChecks": true,
 		"experimentalDecorators": true,
+		"esModuleInterop": true,
 		"sourceMap": false,
 		"target": "es2020",
 		"module": "commonjs",
@@ -23,5 +24,8 @@
 	"compileOnSave": false,
 	"include": [
 		"./src/**/*.ts"
-	]
+	],
+	"ts-node": {
+		"swc": true
+	}
 }

@@ -1,5 +1,5 @@
 import autobind from 'autobind-decorator';
-import * as loki from 'lokijs';
+import loki from 'lokijs';
 import Message from '@/message';
 import Module from '@/module';
 import NGWord from '@/ng-words';

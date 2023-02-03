@@ -1,7 +1,7 @@
 import toHiragana from './utils/to-hiragana';
 
-const fs = require('fs');
-const readline = require('readline');
+import fs from 'fs';
+import readline from 'readline';
 
 export default class NGWord {
 	private excludedWords: string[] = [];
