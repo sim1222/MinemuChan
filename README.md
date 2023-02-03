@@ -23,7 +23,7 @@ Misskey用の[Aiベース](https://github.com/syuilo/ai)のBotです。
 - 怪レい曰本语に変換してくれる機能
 
 ## 導入方法
-> Node.js と npm と MeCab がインストールされている必要があります。
+> Node.js と pnpm と MeCab がインストールされている必要があります。
 
 まず適当なディレクトリに `git clone` します。
 次にそのディレクトリに `config.json` を作成します。中身は次のようにします:
@@ -41,7 +41,7 @@ Misskey用の[Aiベース](https://github.com/syuilo/ai)のBotです。
 	"shellgeiUrl": "シェル芸BotのAPIのURLです(オプション、デフォルトはhttps://websh.jiro4989.com/api/shellgei)"
 }
 ```
-`npm install` して `npm run build` して `npm start` すれば起動できます。
+`pnpm install` して `pnpm run build` して `pnpm start` すれば起動できます。
 
 ### Dockerで動かす
 まず適当なディレクトリに `git clone` します。<br>
@@ -60,7 +60,7 @@ Misskey用の[Aiベース](https://github.com/syuilo/ai)のBotです。
 	"shellgeiUrl": "シェル芸BotのAPIのURLです(オプション、デフォルトではhttps://websh.jiro4989.com/api/shellgei)"
 }
 ```
-`npm install` して `npm run docker` すれば起動できます。<br>
+`pnpm install` して `pnpm run docker` すれば起動できます。<br>
 `docker-compose.yml` の `enable_mecab` を `0` にすると、MeCabをインストールしないようにもできます。（メモリが少ない環境など）
 
 #### 一部の機能にはフォントが必要です。NullcatChan!にはフォントは同梱されていないので、ご自身でフォントをインストールしてそのフォントを`font.ttf`という名前でインストールディレクトリに設置してください。
