@@ -75,5 +75,9 @@ Misskey用の[Aiベース](https://github.com/syuilo/ai)のBotです。
 `pnpm install` して `pnpm run docker` すれば起動できます。<br>
 `docker-compose.yml` の `enable_mecab` を `0` にすると、MeCabをインストールしないようにもできます。（メモリが少ない環境など）
 
+#### dockerimageを配布しています
+[ここ](https://hub.docker.com/r/nullnyat/nullcatchan)にある
+
+
 #### 一部の機能にはフォントが必要です。NullcatChan!にはフォントは同梱されていないので、ご自身でフォントをインストールしてそのフォントを`font.ttf`という名前でインストールディレクトリに設置してください。
 #### NullcatChan!は記憶の保持にインメモリデータベースを使用しており、僕のインストールディレクトリに `memory.json` という名前で永続化されます。
