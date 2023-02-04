@@ -39,6 +39,12 @@ Misskey用の[Aiベース](https://github.com/syuilo/ai)のBotです。
 	"mecabDic": "MeCab の辞書ファイルパス(オプション)",
 	"memoryDir": "memory.jsonの保存先(オプション、デフォルトは'.'(レポジトリのルートです))",
 	"shellgeiUrl": "シェル芸BotのAPIのURLです(オプション、デフォルトはhttps://websh.jiro4989.com/api/shellgei)"
+	"gomamayo": "ゴママヨの意味をを表す絵文字を入れる(デフォルトだと:gomamayo:)",
+ 	"antenna": "アンテナを受信したの意味をを表す絵文字を入れる(デフォルトだと:bibibi_nullcatchan:)",
+	"nadenade": "なでるの意味をを表す絵文字を入れる(デフォルトだと:ablobcatfloofpat:)",
+  	"erai": "えらいの意味をを表す絵文字を入れる(デフォルトだと:erait:)",
+  	"unko": "あなた今うんこって言いましたねの意味をを表す絵文字を入れる(デフォルトだと:anataima_unkotte_iimashitane:)",
+  	"ti": "ちの意味をを表す絵文字を入れる(デフォルトだと:_ti:)"
 }
 ```
 `pnpm install` して `pnpm run build` して `pnpm start` すれば起動できます。
@@ -57,7 +63,13 @@ Misskey用の[Aiベース](https://github.com/syuilo/ai)のBotです。
 	"mecab": "/usr/bin/mecab",
 	"mecabDic": "/usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd/",
 	"memoryDir": "data",
-	"shellgeiUrl": "シェル芸BotのAPIのURLです(オプション、デフォルトではhttps://websh.jiro4989.com/api/shellgei)"
+	"shellgeiUrl": "シェル芸BotのAPIのURLです(オプション、デフォルトではhttps://websh.jiro4989.com/api/shellgei)",
+	"gomamayo": "ゴママヨの意味をを表す絵文字を入れる(デフォルトだと:gomamayo:)",
+ 	"antenna": "アンテナを受信したの意味をを表す絵文字を入れる(デフォルトだと:bibibi_nullcatchan:)",
+	"nadenade": "なでるの意味をを表す絵文字を入れる(デフォルトだと:ablobcatfloofpat:)",
+  	"erai": "えらいの意味をを表す絵文字を入れる(デフォルトだと:erait:)",
+  	"unko": "あなた今うんこって言いましたねの意味をを表す絵文字を入れる(デフォルトだと:anataima_unkotte_iimashitane:)",
+  	"ti": "ちの意味をを表す絵文字を入れる(デフォルトだと:_ti:)"
 }
 ```
 `pnpm install` して `pnpm run docker` すれば起動できます。<br>

@@ -11,6 +11,12 @@ type Config = {
 	mecabDic?: string;
 	memoryDir?: string;
 	shellgeiUrl?: string;
+	gomamayo: string;
+	"antenna": string;
+   	"nadenade": string;
+	"erai": string;
+	"unko": string;
+	"ti": string;
 };
 
 const config = require('../config.json');

@@ -1,12 +1,11 @@
 import autobind from 'autobind-decorator';
 import { parse } from 'twemoji-parser';
+import config from '@/config';
 const delay = require('timeout-as-promise');
-
 import { Note } from '@/misskey/note';
 import Module from '@/module';
 import Stream from '@/stream';
 import includes from '@/utils/includes';
-
 const gomamayo = require('gomamayo-js');
 
 export default class extends Module {
@@ -38,8 +37,8 @@ export default class extends Module {
 			});
 		};
 
-		if (await gomamayo.find(note.text)) return react(':bikkuribikkuri_:');
-		if (includes(note.text, ['ぬるきゃっとちゃん', 'ぬるきゃぼっと', 'ぬるきゃっとぼっと'])) return react(':bibibi_nullcatchan:');
+		if (await gomamayo.find(note.text)) return react(config.gomamayo);
+		if (includes(note.text, ['ぬるきゃっとちゃん', 'ぬるきゃぼっと', 'ぬるきゃっとぼっと'])) return react(config.antenna);
 		if (
 			includes(note.text, [
 				'ねむい',
@@ -63,9 +62,9 @@ export default class extends Module {
 				'辛い'
 			])
 		)
-			return react(':nadenade_neko:');
-		if (includes(note.text, ['理解した', 'りかいした', 'わかった', '頑張った', 'がんばった'])) return react(':erai:');
-		if (note.text.match(/う[～|ー]*んこ/) || note.text.match(/unko/)) return react(':anataima_unkotte_iimashitane:');
-		if (note.text.match(/う[～|ー]*ん$/) || note.text.match(/un$/)) return react(':ti_:');
+			return react(config.nadenade);
+		if (includes(note.text, ['理解した', 'りかいした', 'わかった', '頑張った', 'がんばった'])) return react(config.erai);
+		if (note.text.match(/う[～|ー]*んこ/) || note.text.match(/unko/)) return react(config.unko);
+		if (note.text.match(/う[～|ー]*ん$/) || note.text.match(/un$/)) return react(config.ti);
 	}
 }
