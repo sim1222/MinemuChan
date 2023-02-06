@@ -1,6 +1,7 @@
 import autobind from 'autobind-decorator';
 import Module from '@/module';
 import Message from '@/message';
+import config from '@/config';
 
 export default class extends Module {
 	public readonly name = 'follow';
@@ -21,11 +22,11 @@ export default class extends Module {
 				});
 				msg.reply('これからよろしくね！', { immediate: true });
 				return {
-					reaction: msg.friend.love >= 0 ? ':love_nullcatchan:' : null
+					reaction: msg.friend.love >= 0 ? config.love : null
 				};
 			} else {
 				return {
-					reaction: msg.friend.love >= 0 ? ':love_nullcatchan:' : null
+					reaction: msg.friend.love >= 0 ? config.love : null
 				};
 			}
 		} else {
