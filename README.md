@@ -10,17 +10,17 @@ Misskey用の[Aiベース](https://github.com/syuilo/ai)のBotです。
 
 ## 大きな変更点
 - 自動投稿の内容
-- pingに対する返答の内容
 - 自動返信の内容
-- ゴママヨに反応([ここ](https://github.com/ThinaticSystem/gomamayo.js)から持ってきた)
+- ゴママヨに反応
 - ゲーム機能と絵文字を自動生成するやつがない
 - GitHubのStatusがわかる
 - CloudflareのStatusがわかる
 - やることを決めてくれる
 - 気圧の状況を教えてくれる
 - 時報機能
-- シェル芸機能([ここ](https://github.com/sim1222/shellgei-misskey)から持ってきた)
+- シェル芸機能
 - 怪レい曰本语に変換してくれる機能
+- アニメ予想機能
 
 ## 導入方法
 > Node.js と pnpm と MeCab がインストールされている必要があります。
@@ -40,6 +40,7 @@ Misskey用の[Aiベース](https://github.com/syuilo/ai)のBotです。
 	"memoryDir": "memory.jsonの保存先(オプション、デフォルトは'.'(レポジトリのルートです))",
 	"shellgeiUrl": "シェル芸BotのAPIのURLです(オプション、デフォルトはhttps://websh.jiro4989.com/api/shellgei)"
 	"gomamayo": "ゴママヨの意味をを表す絵文字を入れる(デフォルトだと:gomamayo:)",
+	"love": "いいねやloveの意味をを表す絵文字を入れる(デフォルトだと:love_nullcatchan:)",
  	"antenna": "アンテナを受信したの意味をを表す絵文字を入れる(デフォルトだと:bibibi_nullcatchan:)",
 	"nadenade": "なでるの意味をを表す絵文字を入れる(デフォルトだと:ablobcatfloofpat:)",
   	"erai": "えらいの意味をを表す絵文字を入れる(デフォルトだと:erait:)",
@@ -64,6 +65,7 @@ Misskey用の[Aiベース](https://github.com/syuilo/ai)のBotです。
 	"mecabDic": "/usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd/",
 	"memoryDir": "data",
 	"shellgeiUrl": "シェル芸BotのAPIのURLです(オプション、デフォルトではhttps://websh.jiro4989.com/api/shellgei)",
+	"love": "いいねやloveの意味をを表す絵文字を入れる(デフォルトだと:love_nullcatchan:)",
 	"gomamayo": "ゴママヨの意味をを表す絵文字を入れる(デフォルトだと:gomamayo:)",
  	"antenna": "アンテナを受信したの意味をを表す絵文字を入れる(デフォルトだと:bibibi_nullcatchan:)",
 	"nadenade": "なでるの意味をを表す絵文字を入れる(デフォルトだと:ablobcatfloofpat:)",
@@ -80,4 +82,4 @@ Misskey用の[Aiベース](https://github.com/syuilo/ai)のBotです。
 
 
 #### 一部の機能にはフォントが必要です。NullcatChan!にはフォントは同梱されていないので、ご自身でフォントをインストールしてそのフォントを`font.ttf`という名前でインストールディレクトリに設置してください。
-#### NullcatChan!は記憶の保持にインメモリデータベースを使用しており、僕のインストールディレクトリに `memory.json` という名前で永続化されます。
+#### NullcatChan!は記憶の保持にインメモリデータベースを使用しており、nullcatchanのインストールディレクトリに `memory.json` という名前で永続化されます。
