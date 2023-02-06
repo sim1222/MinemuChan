@@ -72,7 +72,7 @@ export default class extends Module {
 				msg.reply(`${this.mfmVersion(meta.version)} みたいだよ！`);
 			})
 			.catch(() => {
-				msg.reply(`取得失敗しちゃった:cry_nullcatchan:`);
+				msg.reply(`取得失敗しちゃった...`);
 			});
 
 		return true;

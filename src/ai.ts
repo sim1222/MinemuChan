@@ -236,7 +236,7 @@ export default class 藍 {
 						  }
 			  );
 
-		let reaction: string | null = config.love;
+		let reaction: string | null = '💙' ;
 		let immediate: boolean = false;
 
 		//#region

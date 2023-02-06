@@ -12,7 +12,6 @@ type Config = {
 	memoryDir?: string;
 	shellgeiUrl?: string;
 	gomamayo: string;
-	"love": string;
 	"antenna": string;
    	"nadenade": string;
 	"erai": string;

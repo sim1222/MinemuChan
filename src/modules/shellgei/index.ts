@@ -44,7 +44,7 @@ export default class extends Module {
 					const shellgeiResultStdOut = shellgeiResultJson.stdout;
 					const shellgeiResultStdErr = shellgeiResultJson.stderr;
 					if (shellgeiResultStdOut === '' && shellgeiResultStdErr === '') {
-						msg.reply(`結果がなかったよ:cry_nullcatchan:`, {
+						msg.reply(`結果がなかったよ`, {
 							immediate: true
 						});
 					} else {
@@ -54,7 +54,7 @@ export default class extends Module {
 					}
 				} catch (e) {
 					console.log(e);
-					msg.reply(`エラーが発生しちゃったよ:cry_nullcatchan:\n${e}`, {
+					msg.reply(`エラーが発生しちゃったよ....\n${e}`, {
 						immediate: true
 					});
 				}
