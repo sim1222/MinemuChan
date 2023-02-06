@@ -37,7 +37,7 @@ export default {
 		okaeri: {
 			love: name => (name ? [`おかえり${name}！`, `おかえりぃ${name}～`] : ['おかえり！', 'おかえりぃ～']),
 
-			love2: name => (name ? `おかえり～～！！${name}今日も偉いね:love_nullcatchan:` : 'おかえり～～！！今日も偉いね:love_nullcatchan:'),
+			love2: name => (name ? `おかえり～～！！${name}今日も偉いね！` : 'おかえり～～！！今日も偉いね！'),
 
 			normal: name => (name ? `おかえり${name}！` : 'おかえり！')
 		},
@@ -57,7 +57,7 @@ export default {
 
 			love2: ['あぅ… 恥ずかしいよぉ', 'あぅ… 恥ずかしぃ…', 'ふみゃ…！？'],
 
-			love3: ['んへへぇ ありがと:love_nullcatchan:', 'にへぇ～～', 'んみゅっ… ', 'もっともっとぉ...'],
+			love3: ['んへへぇ ありがと〜〜', 'にへぇ～～', 'んみゅっ… ', 'もっともっとぉ...'],
 
 			hate1: 'やめて',
 

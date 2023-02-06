@@ -167,7 +167,7 @@ export default class 藍 {
 			// リアクションする
 			this.api('notes/reactions/create', {
 				noteId: data.id,
-				reaction: ':love_nullcatchan:'
+				reaction: ':catchan:'
 			});
 		});
 
@@ -236,7 +236,7 @@ export default class 藍 {
 						  }
 			  );
 
-		let reaction: string | null = ':love_nullcatchan:';
+		let reaction: string | null = config.love;
 		let immediate: boolean = false;
 
 		//#region
