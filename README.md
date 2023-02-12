@@ -1,5 +1,7 @@
 ## これってなに？
+
 Misskey用の[Aiベース](https://github.com/syuilo/ai)のBotです。
+
  ```
      _   __      ____           __  ________                __
     / | / /_  __/ / /________ _/ /_/ ____/ /_  ____ _____  / /
@@ -9,6 +11,7 @@ Misskey用の[Aiベース](https://github.com/syuilo/ai)のBotです。
 ```
 
 ## 大きな変更点
+
 - 自動投稿の内容
 - pingに対する返答の内容
 - 自動返信の内容
@@ -23,10 +26,21 @@ Misskey用の[Aiベース](https://github.com/syuilo/ai)のBotです。
 - 怪レい曰本语に変換してくれる機能
 
 ## 導入方法
-> Node.js と npm と MeCab がインストールされている必要があります。
 
-まず適当なディレクトリに `git clone` します。
-次にそのディレクトリに `config.json` を作成します。中身は次のようにします:
+### Dockerを使わずに動かす
+
+#### 必要要件
+
+- [Node.js](https://nodejs.org/) v18
+- [pnpm](https://pnpm.io/) v7
+- [MeCab](https://taku910.github.io/mecab/)
+
+#### インストール
+
+まず適当なディレクトリにこのリポジトリをクローンします。
+
+次にそのディレクトリに`config.json`を作成します。中身は次のようにします。
+
 ``` json
 {
 	"host": "https:// + あなたのインスタンスのURL (末尾の / は除く)",
@@ -41,12 +55,22 @@ Misskey用の[Aiベース](https://github.com/syuilo/ai)のBotです。
 	"shellgeiUrl": "シェル芸BotのAPIのURLです（デフォルトではhttps://websh.jiro4989.com/api/shellgei）"
 }
 ```
-`npm install` して `npm run build` して `npm start` すれば起動できます。
+`pnpm fetch`して`pnpm build`して`pnpm start`すれば起動できます。
 
 ### Dockerで動かす
-まず適当なディレクトリに `git clone` します。<br>
-次にそのディレクトリに `config.json` を作成します。中身は次のようにします:
+
+#### 必要要件
+
+- [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/) v2
+
+#### インストール
+
+まず適当なディレクトリにこのリポジトリをクローンします。
+
+次にそのディレクトリに`config.json`を作成します。中身は次のようにします。
 （MeCabの設定、memoryDirについては触らないでください）
+
 ``` json
 {
 	"host": "https:// + あなたのインスタンスのURL (末尾の / は除く)",
@@ -55,13 +79,13 @@ Misskey用の[Aiベース](https://github.com/syuilo/ai)のBotです。
 	"notingEnabled": "ランダムにノートを投稿する機能。true(on) or false(off)",
 	"keywordEnabled": "キーワードを覚える機能 (MeCab が必要) true or false",
 	"mecab": "/usr/bin/mecab",
-	"mecabDic": "/usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd/",
+	"mecabDic": "/min",
 	"memoryDir": "data",
 	"shellgeiUrl": "シェル芸BotのAPIのURLです（デフォルトではhttps://websh.jiro4989.com/api/shellgei）"
 }
 ```
-`npm install` して `npm run docker` すれば起動できます。<br>
-`docker-compose.yml` の `enable_mecab` を `0` にすると、MeCabをインストールしないようにもできます。（メモリが少ない環境など）
+
+`docker compose up -d`すれば起動できます。
 
 #### 一部の機能にはフォントが必要です。NullcatChan!にはフォントは同梱されていないので、ご自身でフォントをインストールしてそのフォントを`font.ttf`という名前でインストールディレクトリに設置してください。
 #### NullcatChan!は記憶の保持にインメモリデータベースを使用しており、僕のインストールディレクトリに `memory.json` という名前で永続化されます。
