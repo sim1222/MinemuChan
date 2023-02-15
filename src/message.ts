@@ -1,6 +1,6 @@
 import autobind from 'autobind-decorator';
-import * as chalk from 'chalk';
-const delay = require('timeout-as-promise');
+import chalk from 'chalk';
+import delay from 'timeout-as-promise';
 
 import 藍 from '@/ai';
 import Friend from '@/friend';

@@ -2,9 +2,8 @@
 
 import 'module-alias/register';
 
-import * as chalk from 'chalk';
-import * as request from 'request-promise-native';
-const promiseRetry = require('promise-retry');
+import chalk from 'chalk';
+import Retry from 'promise-retry';
 
 import 藍 from './ai';
 import config from './config';
@@ -53,23 +52,26 @@ function log(msg: string): void {
 
 log(chalk.bold(`Nullcat chan! v${pkg.version}`));
 
-promiseRetry(
+Retry(
 	retry => {
 		log(`Account fetching... ${chalk.gray(config.host)}`);
 
 		// アカウントをフェッチ
-		return request
-			.post(`${config.apiUrl}/i`, {
-				json: {
-					i: config.i
-				}
-			})
-			.catch(retry);
+		return fetch(`${config.apiUrl}/i`, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					i: config.i,
+				})
+			}).catch(retry);
 	},
 	{
 		retries: 3
 	}
 )
+	.then(res => res.json())
 	.then(account => {
 		const acct = `@${account.username}`;
 		log(chalk.green(`Account fetched successfully: ${chalk.underline(acct)}`));

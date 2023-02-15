@@ -1,19 +1,19 @@
-FROM node:16 AS module
+FROM node:18 AS module
 
 WORKDIR /app
 
 RUN apt-get update
 RUN apt-get install -y build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
 
-COPY package.json .
+COPY package.json ./
 
 RUN corepack enable
-RUN pnpm install --prod
+RUN pnpm i --frozen-lockfile --prod
 
 
 FROM module AS build
 
-RUN pnpm install
+RUN pnpm i --frozen-lockfile
 
 COPY . .
 
@@ -37,7 +37,7 @@ RUN apk add tini-static
 RUN mv /sbin/tini-static /tini
 
 
-FROM node:16-slim
+FROM node:18-slim
 
 ENV NODE_ENV="production"
 

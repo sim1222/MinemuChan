@@ -2,11 +2,10 @@
 
 import * as fs from 'fs';
 import autobind from 'autobind-decorator';
-import * as loki from 'lokijs';
-import * as request from 'request-promise-native';
-import * as chalk from 'chalk';
+import loki from 'lokijs';
+import chalk from 'chalk';
 import { v4 as uuid } from 'uuid';
-const delay = require('timeout-as-promise');
+import delay from 'timeout-as-promise';
 
 import config from '@/config';
 import Module from '@/module';
@@ -363,16 +362,18 @@ export default class 藍 {
 	 */
 	@autobind
 	public async upload(file: Buffer | fs.ReadStream, meta: any) {
-		const res = await request.post({
-			url: `${config.apiUrl}/drive/files/create`,
-			formData: {
+		const res = await fetch(`${config.apiUrl}/drive/files/create`, {
+			method: "POST",
+			body: JSON.stringify({
 				i: config.i,
 				file: {
 					value: file,
 					options: meta
 				}
-			},
-			json: true
+			}),
+			headers: {
+				"Content-Type": "application/json",
+			}
 		});
 		return res;
 	}
@@ -418,13 +419,21 @@ export default class 藍 {
 	 */
 	@autobind
 	public api(endpoint: string, param?: any) {
-		return request.post(`${config.apiUrl}/${endpoint}`, {
-			json: Object.assign(
-				{
-					i: config.i
-				},
-				param
-			)
+		return fetch(`${config.apiUrl}/${endpoint}`, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				...{ i: config.i }, ...param
+			}),
+		}).then(res => {
+			if(res.status != 204)
+				return res.json();
+
+			return new Promise((resolve, reject) => {
+				resolve(JSON.parse("{}"));
+			})
 		});
 	}
 

@@ -11,10 +11,14 @@
 		"transform": {
 			"legacyDecorator": false,
 			"decoratorMetadata": false
+		},
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["src/*"]
 		}
 	},
 	"module": {
 		"type": "commonjs",
-		"noInterop": true
+		"noInterop": false
 	}
 }
