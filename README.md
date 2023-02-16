@@ -54,7 +54,6 @@ Misskey用の[Aiベース](https://github.com/syuilo/ai)のBotです。
 	"memoryDir": "memory.jsonの保存先(オプション、デフォルトは'.'(レポジトリのルートです))",
 	"shellgeiUrl": "シェル芸BotのAPIのURLです(オプション、デフォルトはhttps://websh.jiro4989.com/api/shellgei)"
 	"gomamayo": "ゴママヨの意味をを表す絵文字を入れる(デフォルトだと:gomamayo:)",
-	"love": "いいねやloveの意味をを表す絵文字を入れる(デフォルトだと:love_nullcatchan:)",
  	"antenna": "アンテナを受信したの意味をを表す絵文字を入れる(デフォルトだと:bibibi_nullcatchan:)",
 	"nadenade": "なでるの意味をを表す絵文字を入れる(デフォルトだと:ablobcatfloofpat:)",
   	"erai": "えらいの意味をを表す絵文字を入れる(デフォルトだと:erait:)",
@@ -89,7 +88,6 @@ Misskey用の[Aiベース](https://github.com/syuilo/ai)のBotです。
 	"mecabDic": "/min",
 	"memoryDir": "data",
 	"shellgeiUrl": "シェル芸BotのAPIのURLです(オプション、デフォルトではhttps://websh.jiro4989.com/api/shellgei)",
-	"love": "いいねやloveの意味をを表す絵文字を入れる(デフォルトだと:love_nullcatchan:)",
 	"gomamayo": "ゴママヨの意味をを表す絵文字を入れる(デフォルトだと:gomamayo:)",
  	"antenna": "アンテナを受信したの意味をを表す絵文字を入れる(デフォルトだと:bibibi_nullcatchan:)",
 	"nadenade": "なでるの意味をを表す絵文字を入れる(デフォルトだと:ablobcatfloofpat:)",
