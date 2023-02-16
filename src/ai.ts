@@ -166,7 +166,7 @@ export default class 藍 {
 			// リアクションする
 			this.api('notes/reactions/create', {
 				noteId: data.id,
-				reaction: ':catchan:'
+				reaction: '💙'
 			});
 		});
 
