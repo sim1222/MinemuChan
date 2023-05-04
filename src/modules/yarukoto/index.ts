@@ -23,7 +23,9 @@ const yarukotoList = [
 	'ごろごろする',
 	'YouTube見る',
 	'爪切る',
-	'カフェイン飲む'
+	'カフェイン飲む',
+	'ふとももを見る',
+	'コンフォートに乗る'
 ];
 
 export default class extends Module {

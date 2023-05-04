@@ -1,0 +1,10 @@
+{
+	"host": "https://metaskey.net",
+	"i": "bot_token",
+    "master": "meru",
+	"notingEnabled": "true",
+	"keywordEnabled": "true",
+	"serverMonitoring": "true",
+	"mecab": "/usr/local/bin/mecab",
+	"shellgeiUrl": "https://websh.jiro4989.com/api/shellgei"
+}

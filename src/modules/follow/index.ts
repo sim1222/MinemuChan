@@ -20,7 +20,7 @@ export default class extends Module {
 				this.ai.api('following/create', {
 					userId: msg.userId
 				});
-				msg.reply('これからよろしくね！', { immediate: true });
+				msg.reply('これからよろしくね！とりあえずふともも見せて？', { immediate: true });
 				return {
 					reaction: msg.friend.love >= 0 ? '💙' : null
 				};

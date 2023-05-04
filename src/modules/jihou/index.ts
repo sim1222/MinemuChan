@@ -23,25 +23,25 @@ export default class extends Module {
 		switch (hour) {
 			default:
 				this.ai.post({
-					text: `${hour}時だよ！`
+					text: `${hour}時だよ！ふともも見せてね！`
 				});
 				break;
 
 			case 7:
 				this.ai.post({
-					text: `みんなおはよ！${hour}時だよ！`
+					text: `みんなおはよ！${hour}時だよ！ふともも見せてね！`
 				});
 				break;
 
 			case 1:
 				this.ai.post({
-					text: `${hour}時だよ！みんなそろそろ寝る時間かな？`
+					text: `${hour}時だよ！みんなそろそろ寝る時間かな？その前にふともも見せてね！`
 				});
 				break;
 
 			case 5:
 				this.ai.post({
-					text: `${hour}時だよ！ログボリセットの時間だよ！！`
+					text: `${hour}時だよ！ふともも見せる時間だよ！！`
 				});
 				break;
 		}
