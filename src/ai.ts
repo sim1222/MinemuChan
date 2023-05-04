@@ -166,7 +166,7 @@ export default class 藍 {
 			// リアクションする
 			this.api('notes/reactions/create', {
 				noteId: data.id,
-				reaction: '💙'
+				reaction: ':eti_suri:'
 			});
 		});
 
@@ -235,7 +235,7 @@ export default class 藍 {
 						  }
 			  );
 
-		let reaction: string | null = '💙' ;
+		let reaction: string | null = ':eti_suri:' ;
 		let immediate: boolean = false;
 
 		//#region

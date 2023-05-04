@@ -22,11 +22,11 @@ export default class extends Module {
 				});
 				msg.reply('これからよろしくね！とりあえずふともも見せて？', { immediate: true });
 				return {
-					reaction: msg.friend.love >= 0 ? '💙' : null
+					reaction: msg.friend.love >= 0 ? ':eti_suri:' : null
 				};
 			} else {
 				return {
-					reaction: msg.friend.love >= 0 ? '💙' : null
+					reaction: msg.friend.love >= 0 ? ':eti_suri:' : null
 				};
 			}
 		} else {

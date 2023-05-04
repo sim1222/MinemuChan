@@ -5,7 +5,7 @@ import serifs from '@/serifs';
 import seedrandom from 'seedrandom';
 import { genItem } from '@/vocabulary';
 
-export const blessing = ['みねむのふともも💙', 'なんかすごいふともも✨', '特大ふともも✨', '大大ふともも🎊', '大ふともも🎊', 'ふともも🎉', '中ふともも🎉', '小ふともも🎉', 'コンフォート🗿', '大コンフォート🗿'];
+export const blessing = ['みねむのふともも :eti_suri:', 'なんかすごいふともも✨', '特大ふともも✨', '大大ふともも🎊', '大ふともも🎊', 'ふともも🎉', '中ふともも🎉', '小ふともも🎉', 'コンフォート🗿', '大コンフォート🗿'];
 
 export default class extends Module {
 	public readonly name = 'fortune';
