@@ -384,6 +384,7 @@ export default class 藍 {
 	@autobind
 	public async post(param: any) {
 		if (process.env.NODE_ENV === 'production') {
+			param.visibility = param.visibility ?? 'home';
 			const res = await this.api('notes/create', param);
 			return res.createdNote;
 		} else {
