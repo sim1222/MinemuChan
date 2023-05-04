@@ -1,7 +1,7 @@
 {
 	"host": "https://metaskey.net",
 	"i": "bot_token",
-    "master": "meru",
+	"master": "meru",
 	"notingEnabled": "true",
 	"keywordEnabled": "true",
 	"serverMonitoring": "true",
